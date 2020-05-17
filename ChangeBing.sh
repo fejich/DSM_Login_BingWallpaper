@@ -32,10 +32,13 @@ sed -i s/login_welcome_title=.*//g /etc/synoinfo.conf
 echo "login_welcome_title=\"$title\"">>/etc/synoinfo.conf
 sed -i s/login_welcome_msg=.*//g /etc/synoinfo.conf
 echo "login_welcome_msg=\"$word\"">>/etc/synoinfo.conf
-if (echo $savepath|grep -q '/') then
-#复制图片到保存文件夹与用户壁纸目录下
-cp -f $tmpfile $savepath/$date@$title-$word.jpg
+#替换桌面壁纸
+if (echo $wallpaper|grep -q '/') then
 cp -f $tmpfile $wallpaper
+fi
+#复制图片到保存文件夹与用户壁纸目录下
+if (echo $savepath|grep -q '/') then
+cp -f $tmpfile $savepath/$date@$title-$word.jpg
 #修改图片的权限
 chown $user:users $savepath/$date@$title-$word.jpg
 #为保存的图片建立索引

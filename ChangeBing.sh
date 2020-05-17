@@ -36,7 +36,7 @@ echo "login_welcome_msg=\"$word\"">>/etc/synoinfo.conf
 if (echo $wallpaper|grep -q '/') then
 cp -f $tmpfile $wallpaper
 fi
-#复制图片到保存文件夹与用户壁纸目录下
+#复制图片到保存文件夹
 if (echo $savepath|grep -q '/') then
 cp -f $tmpfile $savepath/$date@$title-$word.jpg
 #修改图片的权限
